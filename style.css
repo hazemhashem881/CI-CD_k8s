@@ -1,0 +1,134 @@
+   *{
+    margin: 0%;
+   }
+   html{
+        background-color: rgb(40 20, 80);
+        color: #fff;
+        height: 2000px;
+    }
+a
+{
+    color: #fff;
+    text-decoration: none;
+    padding: 20px  ;
+}
+a:hover
+{
+    background-color: black;
+}
+
+
+
+/* header*/
+
+
+header
+{
+    display: flex;
+    justify-content: space-around;
+}
+.myheader
+{
+    position: fixed!important;
+    width: 120px;
+    background: #222;
+   height: 100%;
+   text-align: center;
+ left: 0%;
+   height: 5000%;
+   
+}
+ .img-header
+{
+    width: 100%;
+}
+.fa
+{font-size: 30px;
+}
+nav
+{
+    display: flex;
+    justify-content: space-between;
+flex-direction: column;
+position: relative;
+bottom: 7px;
+}
+nav a p 
+{
+    font-size: 10px;
+    padding: 15px;
+
+}
+.home 
+{
+    width: 120px;
+    padding: 10px 0 ;
+    background-color: black;  
+}
+.home:hover
+{
+    background-color: grey;
+}
+
+.name{
+    padding-top: 100px;
+    text-align: center;
+}
+.my-name
+{
+    padding-bottom: 20px;
+}
+/* About   me */
+
+.about h1,h3
+{
+margin-right: 860px;
+text-align: center;
+}
+hr
+{
+    border: 0;
+    border-top: 1px solid #eee;
+ width: 13%;
+   position: relative;
+   left: 260px;
+}
+.about p
+{
+    color: #757575!important;
+    width: 53%;
+text-align: center;
+position: relative;
+   left: 260px;
+}
+.photography {
+    color: #fff!important;
+    background-color: #616161!important;
+   
+}
+.white
+{
+    background-color: #fff;
+    width: 60% ;
+    position: relative;
+    left: 275px;
+}
+.white-2
+{
+    background-color: #fff;
+    width: 60% ;
+    position: relative;
+    left: 275px;
+   padding: 50px 0 50px 0;
+}
+.w3
+{color: #222;
+font-size: 25px;
+display: flex;
+}
+
+.white-2 .photography
+{
+    display: flex;
+    justify-content: space-between;
+}
