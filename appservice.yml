@@ -7,10 +7,12 @@ metadata:
   annotations: 
      service.beta.kubernetes.io/aws-load-balancer-type: "External"
 spec:
-  type: LoadBalancer
+  #type: LoadBalancer
+  type: NodePort
   selector:
     app: web
   ports:
   - port: 80
     targetPort: 80
+    nodePort: 30007
     protocol: TCP
