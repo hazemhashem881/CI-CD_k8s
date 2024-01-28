@@ -4,10 +4,10 @@ metadata:
   name: web-service
   namespace: prod
   
-  #annotations: 
-    # service.beta.kubernetes.io/aws-load-balancer-type: "External"
+  annotations: 
+     service.beta.kubernetes.io/aws-load-balancer-type: "External"
 spec:
-  #type: LoadBalancer
+  type: LoadBalancer
   type: NodePort
   selector:
     app: web
