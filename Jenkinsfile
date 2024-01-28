@@ -17,6 +17,7 @@ pipeline {
             steps {
                 sh "sed -i 's/latest/${BUILD_NUMBER}/' appdeploy.yml "
                 sh "kubectl apply -f namespace.yml"
+                sh "kubectl apply -f appservice.yml"
                 sh "kubectl apply -f appdeploy.yml"
             }
         }
