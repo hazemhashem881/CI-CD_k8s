@@ -1,24 +1,34 @@
 pipeline {
-  agent any
+    agent any
     stages {
-        stage('build') {
+        stage('Snyk Open Source Scan') {
             steps {
-                sh 'docker build -t hazemhashem100/web:v${BUILD_NUMBER} .'
-            } 
+                echo 'Testing'
+                snykSecurity(
+                    snykInstallation: 'snyk@latest',
+                    snykTokenId: 'snyk-api-toke',
+                    failOnIssues: false,
+                    monitorProjectOnBuild: true,
+                    additionalArguments: '--all-projects --d'
+                )
+            }
         }
-        stage('push') {
+        stage('Build & Push image') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
-                    sh 'docker login -u ${USERNAME} -p ${PASSWORD}'
-                    sh "docker push hazemhashem100/web:v${BUILD_NUMBER}"
+                script {
+                    sh "sed -i 's/latest/${BUILD_NUMBER}/' kaniko.yaml"
+                    sh "kubectl apply -f kaniko.yaml"
                 }
             }
         }
+    
+
+
         stage('CD') {
             steps {
                 sh "sed -i 's/latest/${BUILD_NUMBER}/' appdeploy.yml "
                 sh "kubectl apply -f namespace.yml"
-                sh "kubectl apply -f . "
+                sh "kubectl apply -f appdeploy.yml"
             }
         }
     }
